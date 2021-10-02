@@ -118,7 +118,7 @@ fn main() {
             let bar: linya::Bar = progress_child
                 .lock()
                 .unwrap()
-                .bar((rs.len() - 1) as usize, format!("Thread {}", thread_count));
+                .bar((rs.len() -1) as usize, format!("Thread {}", thread_count));
 
             for i in start..end {
                 for j in 0..cols {
@@ -148,9 +148,9 @@ fn main() {
                     }
 
                     ii += 1;
-                    if ii % 1000 == 0 {
-                        progress_child.lock().unwrap().set_and_draw(&bar, ii);
-                    }
+                    
+                    progress_child.lock().unwrap().set_and_draw(&bar, ii);
+                    
                 }
             }
 
